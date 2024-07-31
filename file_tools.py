@@ -4,6 +4,10 @@ import os
 import json
 
 
+def check_filepath(filepath):
+    return os.path.isfile(filepath)
+
+
 def read(file_name):
     # Reads a file to a string
     file_path = os.path.join(os.path.dirname(__file__), file_name)
@@ -12,9 +16,22 @@ def read(file_name):
     return text
 
 
+def read_filepath(file_path):
+    # Reads a file to a string from a full file path
+    with open(file_path, "r") as file:
+        text = file.read()
+    return text
+
+
 def write(file_name, text):
     # Appends text to the end of a file
     file_path = os.path.join(os.path.dirname(__file__), file_name)
+    with open(file_path, "a") as file:
+        file.write(text)
+
+
+def write_filepath(file_path, text):
+    # Appends text to the end of a file from a full file path
     with open(file_path, "a") as file:
         file.write(text)
 
