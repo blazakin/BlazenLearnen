@@ -81,6 +81,7 @@ def add_card():
     print("Add a card to your collection.")
     question = input("Enter Question: ")
     answer = input("Enter answer: ")
+    print()
     if prompt(['Save Card', 'Discard card']) == 'Save Card':
         write("cards.txt", f"{question}, {answer};\n")
         print("Card successfully saved.")
