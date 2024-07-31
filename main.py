@@ -60,6 +60,7 @@ def tutorial():
     print()
     print("Importing Cards: From the Main Menu choose \"Import/Export Cards\" then \"Import Cards\".")
     print("There, enter the filepath to the text file containing cards.")
+    print("Currently only cards exported by this software are compatible.")
     print()
     input("Press Enter to continue: ")
     print()
