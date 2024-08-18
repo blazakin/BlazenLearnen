@@ -106,6 +106,11 @@ def tutorial():
     print("There enter the filepath and filename to export to.")
     print()
     input("Press Enter to continue: ")
+    print()
+    print("Reviewing Cards: From the Main Menu choose \"Learn Cards\".")
+    print("There a card will be chosen for you to review. Try to recall the answer,")
+    print("then after seeing the answer, report whether you got it correct or not.")
+    print()
     return prompt(['Tutorial', 'Main Menu', 'Exit'])
 
 
@@ -173,7 +178,7 @@ def learn_cards():
         print(card_to_study.split(", ")[0])
         input("Press Enter to see answer: ")
         print(card_to_study.split(", ")[1])
-        prompt(["Remembered", "Forgot"])
+        prompt(["Correct", "Forgot"])
     return 'Main Menu'
 
 
