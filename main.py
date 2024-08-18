@@ -27,6 +27,19 @@ def send_message(message, port):
     return message.decode()
 
 
+def send_jmessage(message, port):
+    context = zmq.Context()
+    socket = context.socket(zmq.REQ)
+    socket.connect(f"tcp://localhost:{port}")
+
+    socket.send_string(message)
+
+    if message == 'Exit':
+        return
+
+    return socket.recv_json()
+
+
 def prompt(prompts):
     print()
     print("Choose an option below:")
@@ -67,6 +80,11 @@ def screens(screen_name):
 def welcome():
     print(logo)
     print("A spaced repetition learning tool.")
+    streak = send_jmessage("default", "5555")
+    print("Current learning streak: " + str(streak['streak']))
+    if streak['milestone']:
+        print("Congratulation on reaching a streak milestone!")
+
     return prompt(['Main Menu', 'Tutorial', 'Exit'])
 
 
